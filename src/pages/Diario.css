@@ -1,0 +1,85 @@
+  .diario-container {
+    background-color: #121212;
+    color: white;
+    padding: 20rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    margin-top: auto;
+    height: 100px;
+
+    
+  }
+
+  .diario-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .diario-form input,
+  .diario-form textarea,
+  .diario-form select,
+  .diario-form button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .diario-form input[type="color"] {
+    height: 50px;
+  }
+
+  .diario-form button {
+    background-color: #6200ee;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+
+
+
+/* Diario.css */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.diario-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Toda la altura del viewport */
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.diario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.diario-title {
+  margin: 0;
+}
+
+.add-task-button {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Que la lista de tareas ocupe el espacio restante */
+.task-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}

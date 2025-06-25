@@ -1,0 +1,86 @@
+/* GoalForm.css */
+
+.goal-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #121212;
+  padding: 30px 40px;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+}
+
+.goal-form-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #00aaff;
+  font-weight: 700;
+}
+
+.goal-form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #b0b0b0;
+  margin-top: 20px;
+}
+
+.goal-form-container input[type="text"],
+.goal-form-container input[type="date"],
+.goal-form-container select,
+.goal-form-container textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: #222222;
+  color: #e0e0e0;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: vertical;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.goal-form-container input[type="text"]:focus,
+.goal-form-container input[type="date"]:focus,
+.goal-form-container select:focus,
+.goal-form-container textarea:focus {
+  outline: none;
+  background-color: #333333;
+  box-shadow: 0 0 6px #00aaff;
+}
+
+.goal-form-container textarea {
+  min-height: 90px;
+}
+
+.goal-form-container button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  background-color: #00aaff;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.goal-form-container button:hover {
+  background-color: #008fcc;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .goal-form-container {
+    padding: 25px 20px;
+  }
+
+  .goal-form-container h2 {
+    font-size: 24px;
+  }
+}

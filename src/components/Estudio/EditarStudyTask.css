@@ -1,0 +1,75 @@
+.editar-studytask-form {
+  max-width: 600px;
+  margin: 60px auto;
+  background-color: #121212;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.editar-studytask-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #f0a500;
+  font-weight: 700;
+}
+
+.editar-studytask-input,
+.editar-studytask-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #292929;
+  color: #eee;
+  font-size: 16px;
+  resize: vertical;
+  transition: background-color 0.3s ease;
+}
+
+.editar-studytask-input:focus,
+.editar-studytask-textarea:focus {
+  outline: none;
+  background-color: #3d3d3d;
+}
+
+.editar-studytask-input[type="date"],
+.editar-studytask-input[type="time"] {
+  color-scheme: dark;
+}
+
+.editar-studytask-button {
+  width: 100%;
+  padding: 16px 0;
+  background-color: #007acc;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editar-studytask-button:hover {
+  background-color: #005ea2;
+}
+
+@media (max-width: 600px) {
+  .editar-studytask-form {
+    margin: 30px 20px;
+    padding: 30px 20px;
+  }
+
+  .editar-studytask-title {
+    font-size: 26px;
+  }
+
+  .editar-studytask-button {
+    font-size: 16px;
+  }
+}

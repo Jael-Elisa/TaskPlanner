@@ -1,0 +1,95 @@
+.weekly-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
+  gap: 16px;
+  background-color: #0e0e0e;
+  padding: 20px;
+  overflow-x: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.day-column {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  overflow-y: auto;
+}
+
+.day-title {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  padding-bottom: 4px;
+}
+
+.no-tasks {
+  color: #aaa;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.task-card {
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Colores según tipo */
+.default { background-color: #444; }
+.heads-down { background-color: #457b9d; }
+.meeting { background-color: #e76f51; }
+.design { background-color: #2a9d8f; }
+.presentation { background-color: #b5838d; }
+.travel { background-color: #ffffff; color: #000; }
+.preplanning { background-color: #264653; }
+.wrap-up { background-color: #6a4c93; }
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: inherit;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.task-time {
+  font-size: 13px;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.task-body {
+  margin-top: 5px;
+}
+
+/* === Adaptación a pantallas pequeñas === */
+@media (max-width: 1200px) {
+  .weekly-board {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .day-column {
+    min-width: 240px;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,96 @@
+.weekly-task-form {
+  max-width: 500px;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  background: #f7f9fc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-row.half-width {
+  width: 48%;
+}
+
+.form-row label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-row.half-width {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.form-row.half-width + .form-row.half-width {
+  margin-left: 4%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-save {
+  background-color: #007bff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #0056b3;
+}
+
+.btn-cancel {
+  background-color: #6c757d;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #565e64;
+}
+
+/* Responsive: Apilar campos mitad ancho en móvil */
+@media (max-width: 480px) {
+  .form-row.half-width {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+}

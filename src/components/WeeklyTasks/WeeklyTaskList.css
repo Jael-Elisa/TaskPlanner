@@ -1,0 +1,134 @@
+.weekly-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Tarjeta base */
+.weekly-task-card {
+  padding: 10px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 50px;
+}
+
+/* Encabezado (título) */
+.weekly-task-card h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Descripción / cuerpo */
+.weekly-task-card p {
+  margin: 6px 0 0 0;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+/* Estado (status) */
+.weekly-task-card small {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #ddd;
+}
+
+/* Acciones */
+.weekly-task-card .actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.weekly-task-card .actions button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* === COLORES IGUAL A LA IMAGEN === */
+.heads-down {
+  background-color: #457b9d; /* azul */
+}
+
+.meeting {
+  background-color: #e76f51; /* rojo */
+}
+
+.design {
+  background-color: #2a9d8f; /* verde */
+}
+
+.presentation {
+  background-color: #b5838d; /* púrpura */
+}
+
+.preplanning {
+  background-color: #264653; /* azul oscuro */
+}
+
+.wrap-up {
+  background-color: #6a4c93; /* violeta oscuro */
+}
+
+.travel {
+  background-color: #ffffff; /* blanco */
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.default {
+  background-color: #444;
+}
+
+/* ===== MODAL ===== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Botón cerrar modal */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #000;
+}

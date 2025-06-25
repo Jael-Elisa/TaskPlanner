@@ -1,0 +1,110 @@
+/* Contenedor general del formulario */
+.mtf-form {
+  max-width: 420px;
+  margin: 2rem auto;
+  background-color: #222831;
+  padding: 24px 28px;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(34, 40, 49, 0.9);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+/* Cada grupo de label + input/textarea/select */
+.mtf-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+/* Label */
+.mtf-label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #b0bec5;
+  user-select: text;
+}
+
+/* Inputs y selects con estilos compartidos */
+.mtf-input,
+.mtf-textarea,
+.mtf-select {
+  background-color: #393e46;
+  border: 1.5px solid #393e46;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  color: #f5f6f7;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline-offset: 2px;
+}
+
+.mtf-input:focus,
+.mtf-textarea:focus,
+.mtf-select:focus {
+  border-color: #00adb5;
+  box-shadow: 0 0 8px #00adb5aa;
+  outline: none;
+}
+
+/* Inputs específicos */
+.mtf-input-date {
+  max-width: 180px;
+}
+
+.mtf-input-text {
+  max-width: 100%;
+}
+
+/* Textarea más alta */
+.mtf-textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+/* Botones */
+.mtf-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.mtf-btn {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  color: #eeeeee;
+  box-shadow: 0 0 8px transparent;
+}
+
+.mtf-btn-submit {
+  background-color: #00adb5;
+}
+
+.mtf-btn-submit:hover,
+.mtf-btn-submit:focus {
+  background-color: #009a9f;
+  box-shadow: 0 0 10px #009a9faa;
+  outline: none;
+}
+
+.mtf-btn-cancel {
+  background-color: #393e46;
+  color: #bbbbbb;
+  border: 1px solid #555;
+}
+
+.mtf-btn-cancel:hover,
+.mtf-btn-cancel:focus {
+  background-color: #555b62;
+  color: #eeeeee;
+  outline: none;
+}

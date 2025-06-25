@@ -1,0 +1,19 @@
+/* Asegúrate de que body y html ocupen todo el espacio */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor general que usará todo el espacio */
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #111; /* Opcional: color de fondo oscuro */
+  color: #fff;
+  overflow: auto;
+}

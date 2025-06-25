@@ -1,0 +1,49 @@
+.annual-tasks-container {
+  background-image: url('https://i.pinimg.com/736x/ee/04/af/ee04af1241bd9326256fb218b8be3500.jpg'); /* Asegúrate de usar la ruta correcta */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.header h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin: 0;
+  color: #ffe8d6;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.btn-add {
+  background-color: #f4a261;
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-add:hover {
+  background-color: #e76f51;
+}

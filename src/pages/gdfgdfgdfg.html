@@ -1,0 +1,322 @@
+<link rel="stylesheet" href="../../src/components/Auth/Login.js">
+<link rel="stylesheet" href="../../src/components/Tasks//">
+
+
+
+
+
+import React, { useState, useRef, useEffect } from 'react';
+import './Dashboard.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Reports from './pages/Reports';
+import Profile from './pages/Profile';
+import Diario from './pages/Diario';
+import Estudio from './pages/Estudio';
+import { useNavigate } from "react-router-dom";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+
+
+
+const MATERIAL_ICONS_LINK = "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+const playlist = [
+  {
+    title: "Canción 1",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    quote: "El ritmo que te inspira a estudiar",
+    image: "https://i.pinimg.com/originals/9e/23/f0/9e23f0e8bacb5f03ad6418a3bdd1727b.jpg"
+  },
+  {
+    title: "Canción 2",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    quote: "Concentración y calma en cada nota",
+    image: "https://i.pinimg.com/originals/ae/b0/10/aeb0109a1a5f38a784c06c14a7ae2efe.jpg"
+  },
+  {
+    title: "Canción 3",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    quote: "Estudios con energía positiva",
+    image: "https://i.pinimg.com/originals/9e/23/f0/9e23f0e8bacb5f03ad6418a3bdd1727b.jpg"
+  },
+];
+
+
+export default function DailyPlanner() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying, currentSongIndex]);
+
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const nextSong = () => {
+    setCurrentSongIndex((currentSongIndex + 1) % playlist.length);
+    setIsPlaying(true);
+  };
+
+  const prevSong = () => {
+    setCurrentSongIndex((currentSongIndex - 1 + playlist.length) % playlist.length);
+    setIsPlaying(true);
+  };
+
+  const selectSong = (index) => {
+    setCurrentSongIndex(index);
+    setIsPlaying(true);
+  };
+
+  // Actualiza barra de progreso
+  const onTimeUpdate = () => {
+    setProgress(audioRef.current.currentTime);
+  };
+
+  // Cuando carga metadata actualiza duración
+  const onLoadedMetadata = () => {
+    setDuration(audioRef.current.duration);
+  };
+
+  // Cambiar posición manualmente
+  const onProgressChange = (e) => {
+    audioRef.current.currentTime = e.target.value;
+    setProgress(e.target.value);
+  };
+
+  return (
+    <>
+      {/* Material Icons */}
+      <link href={MATERIAL_ICONS_LINK} rel="stylesheet" />
+
+      <div className="app-container" role="main" aria-label="Daily planner application">
+
+        {/* Responsive Header */}
+        <Header />
+
+        {/* Top Large Image */}
+        <section aria-label="Night study desk with city skyline image" className="main-image-container">
+          <img
+            src="https://i.pinimg.com/originals/9e/23/f0/9e23f0e8bacb5f03ad6418a3bdd1727b.jpg"
+            alt="Ilustración de escritorio de estudio con lámpara encendida y ciudad nocturna desde ventana"
+            loading="lazy"
+          />
+        </section>
+
+        {/* Section header */}
+        <div className="section-header" aria-label="Plan your days section header">
+          <span className="section-line" aria-hidden="true"></span>
+          <span>Planea tus días</span>
+        </div>
+
+        {/* Cards grid */}
+        <div className="cards-grid" role="list" aria-label="Plan cards">
+          {/* ... tus cards aquí ... */}
+          <Card
+            image="https://i.pinimg.com/736x/bb/6f/c0/bb6fc0a06e6ef59663f97b7d18e36546.jpg"
+            alt="Montón de libros apilados en una biblioteca iluminada"
+            label="Diario"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/ae/b0/10/aeb0109a1a5f38a784c06c14a7ae2efe.jpg"
+            alt="Lámpara de escritorio encendida con taza de café y ventana de noche"
+            label="Estudio"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/9e/a8/76/9ea8768fa1572e429d4945efd87e1561.jpg"
+            alt="Montón de libros apilados en una biblioteca iluminada"
+            label="Metas"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/ee/04/af/ee04af1241bd9326256fb218b8be3500.jpg"
+            alt="Lámpara de escritorio encendida con taza de café y ventana de noche"
+            label="Anual"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/a9/59/db/a959db38f6b0ca5fed58fe852027102c.jpg"
+            alt="Montón de libros apilados en una biblioteca iluminada"
+            label="Mensual"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/10/c8/9a/10c89a224c18b4c7c9dbbc8a981e1bba.jpg"
+            alt="Lámpara de escritorio encendida con taza de café y ventana de noche"
+            label="Semanal"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/31/6b/be/316bbed5f0a767e1dd2dce83cb6b6575.jpg"
+            alt="Montón de libros apilados en una biblioteca iluminada"
+            label="Planificadores"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/9e/30/e1/9e30e161c63e664be16c730a0c095b82.jpg"
+            alt="Lámpara de escritorio encendida con taza de café y ventana de noche"
+            label="Personal"
+          />
+          <Card
+            image="https://i.pinimg.com/736x/9e/30/e1/9e30e161c63e664be16c730a0c095b82.jpg"
+            alt="Lámpara de escritorio encendida con taza de café y ventana de noche"
+            label="Estadísticas"
+          />
+          {/* Resto cards omitidos para brevedad */}
+        </div>
+
+        {/* 📅 Calendario funcional */}
+        <section className="calendar-section" aria-label="Calendario">
+          <Calendar
+            onChange={setSelectedDate}
+            value={selectedDate}
+            locale="es-ES"
+          />
+
+          {/* Reproductor cuadrado */}
+          <div className="music-player" aria-label="Reproductor de música cuadrado" style={{maxWidth: 300, marginTop: 20, backgroundColor: '#222', color: 'white', padding: 15, borderRadius: 10}}>
+            <h3 style={{marginBottom: '10px'}}>{playlist[currentSongIndex].title}</h3>
+            {playlist[currentSongIndex].image && (
+             <img
+                src={playlist[currentSongIndex].image}
+                alt={Imagen relacionada con ${playlist[currentSongIndex].title}}
+                style={{
+                  width: '100%',           // Ocupar todo el ancho disponible
+                  height: 'auto',          // Mantiene proporción
+                  borderRadius: '10px',    // Bordes redondeados (opcional)
+                  objectFit: 'cover',      // Asegura que se cubra bien el espacio
+                  maxHeight: '200px',      // Evita que crezca demasiado
+                  marginBottom: '10px',
+                }}
+                loading="lazy"
+              />
+
+            )}
+
+            {playlist[currentSongIndex].quote && (
+              <p style={{fontStyle: 'italic', marginBottom: 10, textAlign: 'center'}}>
+                "{playlist[currentSongIndex].quote}"
+              </p>
+            )}
+
+
+            
+            <audio
+              ref={audioRef}
+              src={playlist[currentSongIndex].url}
+              onTimeUpdate={onTimeUpdate}
+              onLoadedMetadata={onLoadedMetadata}
+              onEnded={nextSong}
+            />
+
+            <input
+              type="range"
+              min={0}
+              max={duration}
+              value={progress}
+              onChange={onProgressChange}
+              style={{width: '100%', marginBottom: 10}}
+              aria-label="Barra de progreso"
+            />
+
+            <div className="controls" style={{display: 'flex', justifyContent: 'space-between'}}>
+              <button onClick={prevSong} aria-label="Canción anterior" style={{background: 'none', border: 'none', color: 'white', cursor: 'pointer'}}>
+                <span className="material-icons" style={{fontSize: 30}}>skip_previous</span>
+              </button>
+
+              <button onClick={togglePlayPause} aria-label={isPlaying ? "Pausa" : "Reproducir"} style={{background: 'none', border: 'none', color: 'white', cursor: 'pointer'}}>
+                {isPlaying ? (
+                  <span className="material-icons" style={{fontSize: 36}}>pause_circle_filled</span>
+                ) : (
+                  <span className="material-icons" style={{fontSize: 36}}>play_circle_filled</span>
+                )}
+              </button>
+
+              <button onClick={nextSong} aria-label="Siguiente canción" style={{background: 'none', border: 'none', color: 'white', cursor: 'pointer'}}>
+                <span className="material-icons" style={{fontSize: 30}}>skip_next</span>
+              </button>
+            </div>
+
+            
+          </div>
+        </section>
+
+      </div>
+
+      {/* Footer */}
+      <Footer />
+    </>
+  );
+}
+
+/** Header component */
+function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    window.location.href = "task/frontend/src/components/Auth/Login.js";
+  };
+
+  return (
+    <header role="banner" aria-label="Primary navigation">
+      <h1>Planeación</h1>
+      <button
+        aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-menu"
+        className="hamburger"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <span className="material-icons" aria-hidden="true">menu</span>
+      </button>
+
+      <nav className="desktop-nav" aria-label="Desktop navigation">
+        <a href="#diario">Diario</a>
+        <a href="#estudio">Estudio</a>
+        <a href="#musica">Música</a>
+        <button onClick={handleLogout}>Cerrar Sesión</button>
+      </nav>
+
+      <nav className={mobile-nav ${mobileMenuOpen ? "show" : ""}} id="mobile-menu">
+        <a href="#diario" onClick={() => setMobileMenuOpen(false)}>Diario</a>
+        <a href="#estudio" onClick={() => setMobileMenuOpen(false)}>Estudio</a>
+        <a href="#musica" onClick={() => setMobileMenuOpen(false)}>Música</a>
+        <button onClick={handleLogout}>Cerrar Sesión</button>
+      </nav>
+    </header>
+  );
+}
+
+/** Card component */
+function Card({ image, alt, label }) {
+  return (
+    <article
+      role="listitem"
+      tabIndex={0}
+      aria-label={${label} card}
+      className="card"
+    >
+      <img src={image} alt={alt} loading="lazy" />
+      <div className="card-label">{label}</div>
+    </article>
+  );
+}
+
+/** Footer component */
+function Footer() {
+  return (
+    <footer role="contentinfo">
+      &copy; {new Date().getFullYear()} Planeación App. Todos los derechos reservados.
+    </footer>
+  );
+} 
